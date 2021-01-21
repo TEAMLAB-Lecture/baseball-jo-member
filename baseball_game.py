@@ -39,7 +39,8 @@ def is_digit(user_input_number):
         else:
             result = False
             break
-
+    if len(user_input_number)==0:
+        result = False
     # ==================================
     return result
 
