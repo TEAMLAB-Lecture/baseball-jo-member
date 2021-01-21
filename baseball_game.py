@@ -275,6 +275,9 @@ def main():
         a,b,c = False,False,False
         while 1:
             user_input = input('Input guess number : ')
+            if user_input =='0':
+                a = True
+                break
             if is_validated_number(user_input):
                 l = get_strikes_or_ball(user_input, random_number)
                 if l == [3, 0]:
