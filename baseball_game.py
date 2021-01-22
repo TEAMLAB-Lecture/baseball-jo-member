@@ -287,6 +287,9 @@ def main():
                         elif is_no(second_user_input):
                             b = False
                             break #3번
+                        elif second_user_input=='0':
+                            b = False
+                            break
                         else:
                             print("Wrong Input, Input again")
                     if b:
