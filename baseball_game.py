@@ -127,6 +127,8 @@ def is_validated_number(user_input_number):
     result = False
     if is_digit(user_input_number) and is_between_100_and_999(user_input_number) and not is_duplicated_number(user_input_number):
         result = True
+    if len(user_input_number)!=3:
+        result = False
 
     # ==================================
     return result
