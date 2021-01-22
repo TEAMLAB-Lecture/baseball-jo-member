@@ -250,6 +250,7 @@ def is_no(one_more_input):
     # >>> bg.is_no("NO")
     # True
     # >>> bg.is_no("nO")
+
     # True
     # >>> bg.is_no("1234")
     # False
@@ -268,40 +269,41 @@ def is_no(one_more_input):
 
 def main():
     print("Play Baseball")
-    user_input = 999
     while 1:
         random_number = str(get_not_duplicated_three_digit_number())
         print("Random Number is : ", random_number)
-        a,b,c = False,False,False
         while 1:
             user_input = input('Input guess number : ')
-            if user_input =='0':
-                a = True
+            if user_input == '0':
+                a = False
                 break
             if is_validated_number(user_input):
-                l = get_strikes_or_ball(user_input, random_number)
-                if l == [3, 0]:
+                if get_strikes_or_ball(user_input,random_number)==[3,0]:
                     while 1:
-                        x = input('You win, one more(Y/N) ?')
-                        if is_yes(x):
+                        second_user_input = input("You win, one more(Y/N) ?")
+                        if is_yes(second_user_input):
                             b = True
-                            break
-                        elif is_no(x):
-                            c = True
-                            a = True
-                            break
+                            break #2번
+                        elif is_no(second_user_input):
+                            b = False
+                            break #3번
                         else:
                             print("Wrong Input, Input again")
-                    if c:
+                    if b:
+                        a = True
+                        break
+                    else:
+                        a = False
                         break
                 else:
-                    print("Strikes : {}, Balls : {}".format(l[0],l[1]))
-                    continue
+                    l = get_strikes_or_ball(user_input,random_number)
+                    print(f"Strikes : {l[0]} , Balls : {l[1]}")
+                
+
             else:
                 print("Wrong Input, Input again")
-            if b:
-                break
-        if a:
+        
+        if not a:
             break
 
     # ==================================
