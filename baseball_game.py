@@ -280,7 +280,9 @@ def main():
                 a = False
                 break
             if is_validated_number(user_input):
-                if get_strikes_or_ball(user_input,random_number)==[3,0]:
+                l = get_strikes_or_ball(user_input,random_number)
+                print(f"Strikes : {l[0]} , Balls : {l[1]}")
+                if l==[3,0]:
                     while 1:
                         second_user_input = input("You win, one more(Y/N) ?")
                         if is_yes(second_user_input):
@@ -300,9 +302,6 @@ def main():
                     else:
                         a = False
                         break
-                else:
-                    l = get_strikes_or_ball(user_input,random_number)
-                    print(f"Strikes : {l[0]} , Balls : {l[1]}")
                 
 
             else:
